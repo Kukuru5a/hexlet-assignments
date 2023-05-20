@@ -8,7 +8,7 @@ public class App {
     public static HashMap<String, Integer> getWordCount(String text) {
         HashMap<String, Integer> hm = new HashMap<>();
         String[] arrText = text.split(" ");
-        if (arrText.length == 0) {
+        if (text.length() == 0) {
             return hm;
         }
         for (String word : arrText) {
@@ -36,7 +36,7 @@ public class App {
     }
 
     public static void main (String[] args) {
-        var text = "the java is the best programming language java";
+        var text = "word text cat apple word apple word";
         var r1 = getWordCount(text);
         var r2 = toString(r1);
         System.out.println(r2);
