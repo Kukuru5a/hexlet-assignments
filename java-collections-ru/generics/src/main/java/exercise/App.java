@@ -4,26 +4,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Map.Entry;
 
 // BEGIN
 public class App {
-    public static List<Map<String, String>> findWhere (List<Map<String, String>> bookList, Map<String, String>where) {
+    public static List<Map<String, String>> findWhere(List<Map<String, String>> bookList, Map<String, String> where) {
         List<Map<String, String>> resString = new ArrayList<>();
-        String infoKey = "";
-        String infoValue = "";
-        for (Map.Entry<String,String> ss : where.entrySet()) {
-            for (Map <String, String> book : bookList) {
-                infoKey = ss.getKey();
-                infoValue = ss.getValue();
-                if (book.containsKey(infoKey) && book.containsValue(infoValue)) {
-                    resString.add(book);
+        for (Map<String, String> book : bookList) {
+            int flag = 0;
+            for (Map.Entry<String, String> ss : where.entrySet()) {
+                if (book.containsKey(ss.getKey()) && book.containsValue(ss.getValue())) {
+                    flag += 1;
+                } else {
+                    flag -= 1;
                 }
+                if (book.containsValue(ss.getValue())) {
+                    flag += 1;
+                } else {
+                    flag -= 1;
+                }
+
             }
-            break;
+            if (flag > 2) {
+                resString.add(book);
+
+            }
+
         }
         return resString;
     }
+
 
     public static void main(String[] args) {
 
@@ -56,4 +65,6 @@ public class App {
         System.out.println(result);
     }
 }
+
+
 //END
