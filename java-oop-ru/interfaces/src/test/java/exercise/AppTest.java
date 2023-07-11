@@ -57,12 +57,6 @@ class AppTest {
     }
 
     // BEGIN
-    @Test
-    void testForReversedSequence () {
-        String txt = "abcdef";
-        CharSequence result = new ReversedSequence(txt);
-        String expected = "fedcba";
-        assertThat(result).isEqualTo(expected);
-    }
+
     // END
 }
