@@ -1,3 +1,4 @@
+<!-- BEGIN -->
 @import exercise.dto.users.UserPage
 @param UserPage page
 
@@ -20,3 +21,4 @@
 </div>
 </body>
 </html>
+<!-- END -->
