@@ -1,6 +1,6 @@
-<!-- BEGIN -->
-@import gg.jte.Content
-@param UsersPage ups
+@import exercise.dto.users.UsersPage
+@param UsersPage page
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,25 +9,25 @@
           rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
           crossorigin="anonymous">
-    <title>User List</title>
+    <title>Hello Hexlet!</title>
 </head>
 <body>
 <div class="mx-auto p-4 py-md-5">
     <main>
-        <ul>
-            <li><a href="show.jte/user1">User 1</a></li>
-        </ul>
-        <ul>
-            <li><a href="show.jte/user2">User 2</a></li>
-        </ul>
-        <ul>
-            <li><a href="show.jte/user3">User 3</a></li>
-        </ul>
-        <ul>
-            <li><a href="show.jte/user4">User 4</a></li>
-        </ul>
+        <h1>Пользователи</h1>
+        <table class="table table-striped">
+            @for(var user : page.getUsers())
+                <tr>
+                    <td>
+                        ${user.getId()}
+                    </td>
+                    <td>
+                        <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
+                    </td>
+                </tr>
+            @endfor
+        </table>
     </main>
 </div>
 </body>
 </html>
-<!-- END -->

@@ -20,8 +20,6 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users", ctx -> ctx.render("localhost:7070/index.jte"));
-
         app.get("/users/{id}", ctx -> {
             var id = ctx.pathParamAsClass("id", Long.class).get();
             User user = USERS.stream()
