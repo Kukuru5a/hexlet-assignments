@@ -10,11 +10,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 // BEGIN
-@Getter
-@Setter
 @AllArgsConstructor
+@Getter
 public class UsersPage {
-    private List<User> firstName;
+    private List<User> users;
     private String term;
 }
 // END
