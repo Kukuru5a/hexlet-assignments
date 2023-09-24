@@ -28,8 +28,8 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users/build", ctx -> ctx.render("users/build.jte"));
-        app.post("/users/build", ctx -> {
+        app.get("users/build", ctx -> ctx.render("users/build.jte"));
+        app.post("/users", ctx -> {
            var name = ctx.formParam("name").trim();
            var capitalizedName = StringUtils.capitalize(name);
            var lastName = ctx.formParam("lastName");
