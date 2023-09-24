@@ -1,42 +1,33 @@
 <!-- BEGIN -->
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <form action="/users" method="post">
-            <div>
-                <label>
-                    Name
-                </label>
-                <input type="text" name="name" />
-            </div>
-            <div>
-                <label>
-                   Last name
-                </label>
-                <input type="text" name="lastName" />
-            </div>
-            <div>
-                <label>
-                    Email
-                </label>
-                <input type="text" required name="email" />
-            </div>
-            <div>
-                <label>
-                    Password
-                </label>
-                <input type="password" required name="password"/>
-            </div>
-            <div>
-                <label>
-                    Confirm Password
-                </label>
-                <input type="password" required name="passwordConfirmation"/>
-            </div>
-            <input type="submit" name="Register" />
-        </form>
-    </body>
-</html>
+@template.layout.page(
+content = @`
+    <form action="/users" method="post">
+        <div class="mb-3">
+            <label class="form-label">
+                Имя
+                <input type="text" class="form-control" name="firstName" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Фамилия
+                <input type="text" class="form-control" name="lastName" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Email
+                <input type="email" class="form-control" required name="email" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Пароль
+                <input type="password" class="form-control" required name="password" />
+            </label>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Зарегистрировать" />
+    </form>
+`
+    )
 <!-- END -->
