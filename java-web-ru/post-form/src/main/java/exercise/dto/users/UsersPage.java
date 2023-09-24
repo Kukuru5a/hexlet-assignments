@@ -9,7 +9,7 @@ import lombok.Setter;
 
 // BEGIN
 @Getter
-@Setter
+
 @AllArgsConstructor
 public class UsersPage {
     private List<User> users;

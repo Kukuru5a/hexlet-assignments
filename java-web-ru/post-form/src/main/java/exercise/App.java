@@ -28,20 +28,20 @@ public final class App {
         });
 
         // BEGIN
-        app.get("users/build", ctx -> ctx.render("users/build.jte"));
+        app.get("users/build", ctx -> {
+            ctx.render("users/build.jte");
+        });
+
         app.post("/users", ctx -> {
-           var name = ctx.formParam("name").trim();
-           var capitalizedName = StringUtils.capitalize(name);
-           var lastName = ctx.formParam("lastName");
-           var capitalizedLastName = StringUtils.capitalize(lastName);
-           var email = ctx.formParam("email").toLowerCase().trim();
-           var password = ctx.formParam("password");
-           var encriptedPassword = Security.encrypt(password);
-           var passConf = ctx.formParam("passwordConfirmation");
-           var encriptedPass2 = Security.encrypt(passConf);
-           User user = new User(capitalizedName, capitalizedLastName, email, encriptedPassword);
-           UserRepository.save(user);
-           ctx.redirect("/users");
+            var firstName = StringUtils.capitalize(ctx.formParam("firstName"));
+            var lastName = StringUtils.capitalize(ctx.formParam("lastName"));
+            var email = ctx.formParam("email").trim().toLowerCase();
+            var password = ctx.formParam("password");
+            var encryptedPassword = Security.encrypt(password);
+
+            var user = new User(firstName, lastName, email, encryptedPassword);
+            UserRepository.save(user);
+            ctx.redirect("/users");
         });
         // END
 
