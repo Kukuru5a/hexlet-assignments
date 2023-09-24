@@ -13,6 +13,12 @@
             </div>
             <div>
                 <label>
+                   Last name
+                </label>
+                <input type="text" name="lastName" />
+            </div>
+            <div>
+                <label>
                     Email
                 </label>
                 <input type="text" required name="email" />
