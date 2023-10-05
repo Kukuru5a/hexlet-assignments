@@ -14,8 +14,8 @@ public final class App {
 
         // BEGIN
         app.get(NamedRoutes.rootPath(), ctx -> ctx.render("layout/page.jte"));
-        app.get("/users", UsersController::build);
-        app.post("/users", UsersController::create);
+        app.post(NamedRoutes.usersPath(), UsersController::create);
+        app.get(NamedRoutes.buildUserPath(), UsersController::build);
         // END
 
         app.get(NamedRoutes.userPath("{id}"), UsersController::show);
