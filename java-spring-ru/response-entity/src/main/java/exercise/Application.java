@@ -24,9 +24,7 @@ public class Application {
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> index(@RequestParam(defaultValue = "10") Integer limit) {
         posts.stream().limit(limit).toList();
-
-        return ResponseEntity.ok()
-                .header("X-Total-Count", String.valueOf(posts.size()+1)).build();
+        return ResponseEntity.ok().header("X-Total-Count", String.valueOf(posts.size())).build();
     }
 
     @GetMapping("/posts/{id}")
